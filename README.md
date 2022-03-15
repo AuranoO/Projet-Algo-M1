@@ -1,7 +1,7 @@
 # Projet d'Algorithmique
 ## Transformée de Burrows-Wheeler et Codage de Huffman
 
-Ce projet a été réalisé dans le cadre de l'UE Algorithmique pour la bioinformatique du Masteer Bioinformatique DLAD  
+Ce projet a été réalisé dans le cadre de l'UE Algorithmique pour la bioinformatique du Master Bioinformatique DLAD  
 Projet développé sous Python Python 3.10.0
 <hr>
 
