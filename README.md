@@ -6,7 +6,7 @@ Projet développé sous Python Python 3.10.0
 <hr>
 
 # Instruction
-- Installer l'ensemble des librairies listées dans le [requirement.txt](requirements.txt).  
+- Installer les librairies dans le [requirement.txt](requirements.txt).  
 ```bash
   pip install -r requirement.txt
 ```
