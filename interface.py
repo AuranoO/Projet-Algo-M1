@@ -71,16 +71,18 @@ def show_result(title, result, huffman=False):
     # Creating a tkinter widgets when it's not for a huffman function
     if huffman is False:
         # Message widgets containing the result and grid it
-        tk.Message(new_window, text=result, font="Arial", bg="white", padx=5, pady=5, width=200).grid(row=1, column=0,
-                                                                                           columnspan=1)
+        tk.Message(new_window, text=result, font="Arial", bg="white", padx=5, pady=5,
+                   width=200).grid(row=1, column=0, columnspan=1)
         # Button using the save function to crate a file containing the result on the same repository
-        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result), padx=5, pady=5).grid(row=0,
-                                                                                                            column=0)
+        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result),
+                  padx=5, pady=5).grid(row=0, column=0)
 
     else:
         # Here we are only changing the argument of save functin and also the result to display when huffman is True
-        tk.Message(new_window, text=result[0], font="Arial", bg="white", padx=5, pady=5).grid(row=1, column=0, columnspan=1)
-        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result, True), padx=5, pady=5).grid(row=0, column=0)
+        tk.Message(new_window, text=result[0], font="Arial", bg="white",
+                   padx=5, pady=5, width=200).grid(row=1, column=0, columnspan=1)
+        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result, True),
+                  padx=5, pady=5).grid(row=0, column=0)
 
     tk.Button(new_window, text="Fermer", command=new_window.destroy, padx=5, pady=5).grid(row=0, column=1)
     # Running the tkinter window
@@ -97,24 +99,28 @@ def show_result_step(title, result):
     # Creating tkinter window and it's characteristic
     new_window = tk.Tk()
     new_window.title(title)
-    new_window.geometry("1000x500")
+    new_window.geometry("700x500")
 
     # Creating tkinter Listbox and Scrollbar
-    result_listbox = tk.Listbox(new_window, width=100, height=200)
+    result_listbox = tk.Listbox(new_window, width=50, height=200)
     # Filling the Listbox with the eahc element from result List
     for element in result:
         result_listbox.insert(tk.END, str(element))
     # Parametring variable around the Listbox and Scrollbar
-    result_listbox.pack(side=tk.LEFT)
-    scroll = tk.Scrollbar(new_window)
-    result_listbox.config(yscrollcommand=scroll.set)
-    scroll.pack(side=tk.RIGHT, fill="y")
-    scroll.config(command=result_listbox.yview)
+    result_listbox.pack(side=tk.LEFT, fill="y", expand=True)
+    scroll_y = tk.Scrollbar(new_window)
+    scroll_x = tk.Scrollbar(new_window, orient="horizontal")
+    result_listbox.config(yscrollcommand=scroll_y.set, xscrollcommand=scroll_x.set)
+    scroll_y.pack(side=tk.RIGHT, fill="y")
+    scroll_y.config(command=result_listbox.yview)
+    scroll_x.pack(side=tk.BOTTOM, fill="x")
+    scroll_x.config(command=result_listbox.xview)
+
     # Adding a save and quit button and placing it
     tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result), padx=3).pack(side=tk.LEFT,
-                                                                                                anchor="n", padx=60,
+                                                                                                anchor="n", padx=10,
                                                                                                 pady=5)
-    tk.Button(new_window, text="Fermer", command=new_window.destroy, padx=3).pack(side=tk.LEFT, anchor="n", padx=60,
+    tk.Button(new_window, text="Fermer", command=new_window.destroy, padx=3).pack(side=tk.LEFT, anchor="n", padx=10,
                                                                                   pady=5)
     # Running the tkinter window
     new_window.mainloop()
@@ -286,7 +292,7 @@ def main_interface():
     # création de la fenetre
     win = tk.Tk()
     # taille de la fenetre
-    win.geometry('500x320')
+    win.geometry('650x350')
     # titre de la fenêtre
     win.title("BWT et Huffman Compression")
     seq_or_path = tk.StringVar()

@@ -43,7 +43,6 @@ def realignement_sequence(sequence):
             list_sequence.append(new_sequence)
             # increase the index of the sequence_end
             seq_index_end += 1
-
     sorted_list = sorted(list_sequence)
     return sorted_list
 
