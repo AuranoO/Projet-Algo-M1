@@ -5,7 +5,6 @@ NodeTree class
 @author: TOUMI Anouar
 """
 
-
 class NodeTree(object):
     def __init__(self, left=None, right=None):
         """ class constructor """

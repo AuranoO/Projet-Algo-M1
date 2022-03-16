@@ -60,7 +60,6 @@ def get_bwt(list_sequence):
     for sequence in list_sequence:
         sequence_end = sequence[-1:]
         bwt += sequence_end
-        # print(bwt)
     bwt = bwt.replace(" ", "")
     return bwt
 

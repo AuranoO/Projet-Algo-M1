@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Create an ensemble of functions for a tkinter interface and button
+Create an ensemble of functions for a tkinter interface and widgets.
 @author: TOUMI Anouar
 """
 
@@ -71,17 +71,18 @@ def show_result(title, result, huffman=False):
     # Creating a tkinter widgets when it's not for a huffman function
     if huffman is False:
         # Message widgets containing the result and grid it
-        tk.Message(new_window, text=result, font="Arial", bg="white", ).grid(row=1, column=0, columnspan=1)
+        tk.Message(new_window, text=result, font="Arial", bg="white", padx=5, pady=5, width=200).grid(row=1, column=0,
+                                                                                           columnspan=1)
         # Button using the save function to crate a file containing the result on the same repository
-        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result), padx=3).grid(row=0, column=0)
+        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result), padx=5, pady=5).grid(row=0,
+                                                                                                            column=0)
 
     else:
         # Here we are only changing the argument of save functin and also the result to display when huffman is True
-        tk.Message(new_window, text=result[0], font="Arial", bg="white", ).grid(row=1, column=0, columnspan=1)
-        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result, True), padx=3).grid(row=0,
-                                                                                                          column=0)
+        tk.Message(new_window, text=result[0], font="Arial", bg="white", padx=5, pady=5).grid(row=1, column=0, columnspan=1)
+        tk.Button(new_window, text="Enregistrer", command=lambda: save(title, result, True), padx=5, pady=5).grid(row=0, column=0)
 
-    tk.Button(new_window, text="Fermer", command=new_window.destroy, padx=3).grid(row=0, column=1)
+    tk.Button(new_window, text="Fermer", command=new_window.destroy, padx=5, pady=5).grid(row=0, column=1)
     # Running the tkinter window
     new_window.mainloop()
 
@@ -125,7 +126,7 @@ def open_help_page():
     @return: None
     """
     # Using webbrowser library to open the webpage
-    webbrowser.open("https://github.com/AuranoO")
+    webbrowser.open("https://github.com/AuranoO/Projet-Algo-M1")
 
 
 def check_file(to_check, huffman=False):
@@ -285,7 +286,7 @@ def main_interface():
     # création de la fenetre
     win = tk.Tk()
     # taille de la fenetre
-    win.geometry('550x320')
+    win.geometry('500x320')
     # titre de la fenêtre
     win.title("BWT et Huffman Compression")
     seq_or_path = tk.StringVar()
@@ -330,13 +331,13 @@ def main_interface():
             index_column = 0
 
     # Créer les widgets du cadre inférieure de la fenetre placer par la methode grid
-    help_button = tk.Button(bottom_frame, text="Aide", command=open_help_page, padx=3)
-    close_button = tk.Button(bottom_frame, text="Fermer", command=win.destroy, padx=3)
-    void_label = tk.Label(bottom_frame, text="", padx=210)
+    help_button = tk.Button(bottom_frame, text="Aide", command=open_help_page)
+    close_button = tk.Button(bottom_frame, text="Fermer", command=win.destroy)
+    void_label = tk.Label(bottom_frame, text="                                                                        ")
 
-    help_button.grid(row=0, column=0)
+    help_button.grid(row=0, column=0, sticky="w")
     void_label.grid(row=0, column=1)
-    close_button.grid(row=0, column=2)
+    close_button.grid(row=0, column=2, sticky="e")
 
     # Running the tkinter window
     win.mainloop()
